@@ -5,13 +5,13 @@ Project idea - create a small prototype of a distance-based parking assistant.
 When I am parking my car, I cant physically see the distance left between my car and another vehicle or object behind me. A device that would inform me of that distance would surely make parking easier.
 
 ## Used components
-1x Arduino Uno;
-1x Breadboard;
-1x Ultrasonic distance sensor (4-pin);
-1x Piezo/Buzzer;
-3x LEDs;
-3x 220 ohm resistors;
-Wires;
+1. 1x Arduino Uno;
+2. 1x Breadboard;
+3. 1x Ultrasonic distance sensor (4-pin);
+4. 1x Piezo/Buzzer;
+5. 3x LEDs;
+6. 3x 220 ohm resistors;
+7. Wires;
 
 ## Wiring photo
 Witing photo is attached to the project. It can be located in the same directory as the end project by the name "Wiring_photo.png".
