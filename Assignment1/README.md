@@ -16,6 +16,9 @@ When I am parking my car, I cant physically see the distance left between my car
 ## Wiring photo
 Witing photo is attached to the project. It can be located in the same directory as the end project by the name "Wiring_photo.png".
 
+## Demo video
+Demo video is attached to the project and can be located in the same directory as the end project by the name "Demo.webp". This video showcases the current implemented functionality.
+
 ## Current functionality
 When the simulation is started in tinkercad environment, ultrasonic distance sensor starts measuring distance up to 300 centimeters in front of it in a cone. By moving the object in the cone, we are able to get different behavior:
 1. When the object is further than 150 centinements away, you will notice only the green LED turned on and the piezo buzzer has long delays between sounds.
