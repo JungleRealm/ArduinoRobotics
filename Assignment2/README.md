@@ -19,9 +19,10 @@ When measuring temperature, sometimes I want to store that data on the computer 
 12. Arduino USB 2.0 cable type A/B
 
 # Wiring photo
-![alt text](/wiring_photo.png)
+![Alt text](wiring_photo.png)
 
 # Demo video
+
 
 # Current functionality
 1. Wire the circuit following the wiring_photo.png provided in the directory;
