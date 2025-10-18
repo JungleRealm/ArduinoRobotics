@@ -22,7 +22,7 @@ When measuring temperature, sometimes I want to store that data on the computer 
 ![Alt text](wiring_photo.png)
 
 # Demo video
-![Alt text](demo.mp4)
+Demo video can be found in the same directory by the name "demo.mp4".
 
 # Prerequisites
 1. Have postgresql set up on your computer;
@@ -39,21 +39,21 @@ I also use a timer interrupt - every 2 seconds, I set a flag that when changed s
 
 # ISR roles
 |            ISR name           |           Trigger         |            Role     |
-|:------------------------------|:-------------------------:|--------------------:|
+|:-----------------------------:|:-------------------------:|:-------------------:|
 | ISR(Timer1) | 2 seconds pass | Ensures we only read sensor data every 2 seconds |
 | ISR_button() | Yellow button clicked | Switches mode between C and F |
 | ISR_button() | Red button clicked | Increases offset by 0.2 C |
 
 # EEPROM layout
 | Address range | Variable name | Data type and size | Description |
-|:--------------|:-------------:|:------------------:|------------:|
+|:-------------:|:-------------:|:------------------:|:-----------:|
 | 0 | mode | byte (1 B) | Stores selected Mode - 0 for Celcius and 1 for Fahrenheit |
 | 4-7 | calibrationOffset | float (4 B) | Stores user defined offset |
 | 100 | EEPROM_MAGIC_VALUE | byte (1 B) | Used for EEPROM value validation |
 
 # Timing budget
 | Task | Trigger | Notes |
-|:-----|:-------:|------:|
+|:----:|:-------:|:-----:|
 | Read temperature | Every 2 seconds | Uses I2C for communicating with the sensor |
 | Serial output | Every 2 seconds | Send formatted data over Serial port (COM4 9600 baud) |
 | Handle yellow button press | On demand | Updates the mode value and writes it into EEPROM |
