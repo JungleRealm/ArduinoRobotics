@@ -22,6 +22,42 @@ When measuring temperature, sometimes I want to store that data on the computer 
 ![Alt text](wiring_photo.png)
 
 # Demo video
+![Alt text](demo.mp4)
+
+# Prerequisites
+1. Have postgresql set up on your computer;
+2. In the postgresql database have a database created called "arduino";
+3. In arduino database have a created table called "temp" that has the following columns: id, time, temperature, calibration;
+4. Hava Java version 17 or higher installed on your computer;
+
+# Interrupts and timer config
+I have 2 interrupts set up in this project:
+1. Yellow button - when clicked calls an interrupt that changes the display mode (C or F) in the LCD. This mode is saved in EEPROM and is booted up first when the program starts.
+2. Red button - when clicked calls an interrupt that increases the calibrationOffset value by 0.2 C. This value is then saved in EEPROM and is booted up when the program starts or resets. Also, the value is displayed on the LCD.
+
+I also use a timer interrupt - every 2 seconds, I set a flag that when changed sends a signal to the DY-906 sensor to read temperature. Every time this value is read, temperature, mode and the offset are sent over Serial port to the pc.
+
+# ISR roles
+|            ISR name           |           Trigger         |            Role     |
+|:------------------------------|:-------------------------:|--------------------:|
+| ISR(Timer1) | 2 seconds pass | Ensures we only read sensor data every 2 seconds |
+| ISR_button() | Yellow button clicked | Switches mode between C and F |
+| ISR_button() | Red button clicked | Increases offset by 0.2 C |
+
+# EEPROM layout
+| Address range | Variable name | Data type and size | Description |
+|:--------------|:-------------:|:------------------:|------------:|
+| 0 | mode | byte (1 B) | Stores selected Mode - 0 for Celcius and 1 for Fahrenheit |
+| 4-7 | calibrationOffset | float (4 B) | Stores user defined offset |
+| 100 | EEPROM_MAGIC_VALUE | byte (1 B) | Used for EEPROM value validation |
+
+# Timing budget
+| Task | Trigger | Notes |
+|:-----|:-------:|------:|
+| Read temperature | Every 2 seconds | Uses I2C for communicating with the sensor |
+| Serial output | Every 2 seconds | Send formatted data over Serial port (COM4 9600 baud) |
+| Handle yellow button press | On demand | Updates the mode value and writes it into EEPROM |
+| Handle red button press | On demand | Updates the calibrationOffset value and writes it into EEPROM |
 
 
 # Current functionality
