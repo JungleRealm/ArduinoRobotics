@@ -28,13 +28,13 @@ I need my solar panel to power the LEDs inside the house. I also need the solar 
 
 # Wiring photos
 ## Arduino
-![Alt text](/Wiring/arduinoWiringPhoto.png)
+![Alt text](Wiring/arduinoWiringPhoto.png)
 
 ## NodeMCU
-![Alt text](/Wiring/nodemcuWiringPhoto.png)
+![Alt text](Wiring/nodemcuWiringPhoto.png)
 
 ## Solar panel
-![Alt text](/Wiring/solarPanelWiringPhoto.png)
+![Alt text](Wiring/solarPanelWiringPhoto.png)
 
 # Demo video
 Demo video can be found in the same directory titled "demo.mp4".
